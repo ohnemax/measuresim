@@ -13,3 +13,4 @@ for i in range(1024):
     p = peak ** i / fac(i) * exp(-peak)
     out = p * 10000 + 102 - i / 10
     print int(out)
+

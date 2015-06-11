@@ -5,6 +5,12 @@ from math import log as ln
 import os.path
 import numpy
 
+from Adafruit_MCP4725 import MCP4725
+
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+
 
 class SignalSpectrum():
     def __init__(self, filename, triggerport, rate=1):
@@ -13,14 +19,20 @@ class SignalSpectrum():
         self.filename = filename
         self.nextping = time()
         self.logchannels = [0] * 4096
+        GPIO.setup(triggerport, GPIO.OUT)
+        GPIO.output(triggerport, False)
+        self.dac = MCP4725(0x60)
+        self.dac.setVoltage(0)
+
 
     def execute(self):
         newu = u()
         idx = 0
-        while(newu > self.cumudata[idx] or idx >= (self.datacount * self.multiplechannels)):
-            idx += 1
-        self.logchannels[idx - 1] += 1
-        self.dacsignal(idx - 1)
+        for idx in range(4096):
+            if(newu < self.cumudata[idx]):
+                break
+        self.logchannels[idx] += 1
+        self.dacsignal(idx)
         
     def dacsignal(self, channel):
         self.setDac(channel)
@@ -29,10 +41,10 @@ class SignalSpectrum():
 
     def setDac(self, channel):
         if(channel >= 0 and channel < 4096):
-        # set dac
-            print("set dac to %d") % channel
+            self.dac.setVoltage(channel)
         else:
             print("ERROR: wrong channel for DAC output")
+            print("Channel was %d") % channel
             exit(1)
 
 
@@ -47,9 +59,9 @@ class SignalSpectrum():
 #        print("set trigger rate to %d") % rate
 
     def trigger(self):
-        triggerpulse = 1
-#        print("trigger on port %d") % self.triggerport
-
+        GPIO.output(self.triggerport, True)
+        sleep(0.0001)
+        GPIO.output(self.triggerport, False)
         
     def setSpectrum(self, filename):
         self.filename = filename

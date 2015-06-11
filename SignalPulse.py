@@ -3,6 +3,10 @@ from time import time
 from numpy.random import uniform as u
 from math import log as ln
 
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+
 class SignalPulse():
     def __init__(self, port, rate=1, high=True):
         self.high = high
@@ -10,14 +14,17 @@ class SignalPulse():
         self.rate = rate
         self.nextping = time()
         self.count = 0
-        print(self.port)
+        GPIO.setup(port, GPIO.OUT)
+        GPIO.output(port, False)
 
     def execute(self):
         self.pulse()
         
     def pulse(self):
+        GPIO.output(port, True)
+        sleep(0.000001)
+        GPIO.output(port, False)
         self.count += 1
-        #add pulse
 
     def resetCount(self):
         self.count = 0
