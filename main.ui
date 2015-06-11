@@ -47,6 +47,9 @@
          <property name="accelerated">
           <bool>true</bool>
          </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>1000</number>
          </property>
@@ -111,6 +114,9 @@
          <property name="accelerated">
           <bool>true</bool>
          </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>1000</number>
          </property>
@@ -132,6 +138,9 @@
          </property>
          <property name="accelerated">
           <bool>true</bool>
+         </property>
+         <property name="minimum">
+          <number>1</number>
          </property>
          <property name="maximum">
           <number>1000</number>
@@ -155,6 +164,9 @@
          <property name="accelerated">
           <bool>true</bool>
          </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>1000</number>
          </property>
@@ -176,6 +188,9 @@
          </property>
          <property name="accelerated">
           <bool>true</bool>
+         </property>
+         <property name="minimum">
+          <number>1</number>
          </property>
          <property name="maximum">
           <number>1000</number>
@@ -199,6 +214,9 @@
          <property name="accelerated">
           <bool>true</bool>
          </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>1000</number>
          </property>
@@ -220,7 +238,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QPlainTextEdit" name="pulsestat"/>
+      <widget class="QPlainTextEdit" name="pulsestat">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -242,7 +264,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QPlainTextEdit" name="spectrumstat"/>
+      <widget class="QPlainTextEdit" name="spectrumstat">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
