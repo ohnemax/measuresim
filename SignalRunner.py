@@ -6,6 +6,8 @@ import RPi.GPIO as GPIO
 
 from SignalPulse import SignalPulse
 
+import RPi.GPIO as GPIO
+
 class SignalRunner(QObject):
     'Object managing the simulation'
  
@@ -31,6 +33,8 @@ class SignalRunner(QObject):
 
         self.disableButtons.emit(True)
         self.pressRun.emit(True)
+
+        GPIO.setmode(GPIO.BCM)
 
         for i in range(len(self.signals)):
             self.signals[i].gpioinit()
