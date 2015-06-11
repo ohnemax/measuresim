@@ -46,7 +46,6 @@ class SimulationUi(QtGui.QMainWindow):
         
         self.figure = plt.figure()
         self.canvas = FigureCanvas(self.figure)
-        self.button = QtGui.QPushButton('Plot')
         self.ui.plotspace.addWidget(self.canvas)
 
  
