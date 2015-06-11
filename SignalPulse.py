@@ -21,9 +21,9 @@ class SignalPulse():
         self.pulse()
         
     def pulse(self):
-        GPIO.output(port, True)
+        GPIO.output(self.port, True)
         sleep(0.000001)
-        GPIO.output(port, False)
+        GPIO.output(self.port, False)
         self.count += 1
 
     def resetCount(self):
