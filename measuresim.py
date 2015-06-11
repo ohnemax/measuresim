@@ -126,8 +126,6 @@ class SimulationUi(QtGui.QMainWindow):
     def singlepulse(self):
         sender = self.sender()
         foundidx = -1
-        print("singlepulse")
-        print('testname' in setupio[1])
         for i in range(len(setupio)):
             if(('testname' in setupio[i]) and sender.objectName() == setupio[i]['testname']):
                 foundidx = i
@@ -135,16 +133,15 @@ class SimulationUi(QtGui.QMainWindow):
             self.list[foundidx].pulse()
             self.ui.pulsestat.setPlainText("Single pulse on GPIO " + str(self.list[foundidx].port))
 
-    def updateSpectrumPlot(self):
+    def updateSpectrumPlot(self, time):
         spectrumidx = -1
         for i in range(len(setupio)):
             if(setupio[i]['type'] == TYPE_SPECTRUM):
                 ax = self.figure.add_subplot(111)
                 ax.hold(False)
-                self.ui.spectrumline.setText("Emitted spectrum (will be reset when Max=10e5):")
                 outputdata = self.list[i].logchannels
                 outputdata += [0] * (4096 - len(outputdata))
-                print(len(outputdata))
+                self.ui.spectrumline.setText("Emitted spectrum (total rate: " + str(sum(outputdata) / time) + " 1/s)")
                 ax.plot(range(4096), outputdata)
                 self.canvas.draw()
         
@@ -160,10 +157,9 @@ class SimulationUi(QtGui.QMainWindow):
             self.ui.spectrumstat.setPlainText(text)
             ax = self.figure.add_subplot(111)
             ax.hold(False)
-            self.ui.spectrumline.setText("Spectrum from file:")
+            self.ui.spectrumline.setText("Spectrum from file")
             outputdata = self.list[spectrumidx].outputchannels
             outputdata += [0] * (4096 - len(outputdata))
-            print(len(outputdata))
             ax.plot(range(4096), outputdata)
             self.canvas.draw()
 
@@ -180,18 +176,17 @@ class SimulationUi(QtGui.QMainWindow):
         self.ui.pulsestat.setPlainText(text)
 
     def endRun(self, time):
-        print(time)
         self.updatePulseStats(time)
         for i in range(len(setupio)):
             if(setupio[i]['type'] == TYPE_SPECTRUM):
                 ax = self.figure.add_subplot(111)
                 ax.hold(False)
-                self.ui.spectrumline.setText("Emitted spectrum:")
+                self.ui.spectrumline.setText("Emitted spectrum")
                 outputdata = self.list[i].logchannels
                 outputdata += [0] * (4096 - len(outputdata))
-                print(len(outputdata))
                 ax.plot(range(4096), outputdata)
                 self.canvas.draw()
+                self.list[i].logchannels = [0] * 4096
 
     def signalsToRunner(self):
         self.simulRunner.setSignals(self.list)
@@ -203,9 +198,6 @@ class SimulationUi(QtGui.QMainWindow):
     def setSpectrum(self, text):
         filename = str(self.ui.spectrumlist.currentText())
         filename = os.path.join(SPECTRA_PATH, filename)
-        print("spectrum changed")
-        print(filename)
-#        filename??
         for i in range(len(setupio)):
             if(setupio[i]['type'] == TYPE_SPECTRUM):
                 self.list[i].setSpectrum(filename)

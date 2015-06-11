@@ -5,8 +5,6 @@ from math import log as ln
 
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BCM)
-
 class SignalPulse():
     def __init__(self, port, rate=1, high=True):
         self.high = high
@@ -14,8 +12,11 @@ class SignalPulse():
         self.rate = rate
         self.nextping = time()
         self.count = 0
-        GPIO.setup(port, GPIO.OUT)
-        GPIO.output(port, False)
+        self.gpioinit()
+
+    def gpioinit(self):
+        GPIO.setup(self.port, GPIO.OUT)
+        GPIO.output(self.port, False)
 
     def execute(self):
         self.pulse()
@@ -38,6 +39,5 @@ class SignalPulse():
 
     def setRate(self, rate):
         self.rate = rate
-        print("set rate to %d") % rate
 
     

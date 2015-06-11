@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Thu Jun 11 18:47:57 2015
-#      by: PyQt4 UI code generator 4.11.2
+# Created: Thu Jun 11 19:55:31 2015
+#      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,16 +12,7 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+    _fromUtf8 = lambda s: s
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -253,7 +244,7 @@ class Ui_MainWindow(object):
         self.spectrumlist.setObjectName(_fromUtf8("spectrumlist"))
         self.verticalLayout_3.addWidget(self.spectrumlist)
         self.spectrumline = QtGui.QLineEdit(self.centralwidget)
-        self.spectrumline.setGeometry(QtCore.QRect(400, 240, 181, 33))
+        self.spectrumline.setGeometry(QtCore.QRect(400, 240, 431, 33))
         self.spectrumline.setObjectName(_fromUtf8("spectrumline"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -268,31 +259,31 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.label_7.setText(_translate("MainWindow", "Pulse Generator", None))
-        self.label_2.setText(_translate("MainWindow", "Channel 2 Rate (1/s)", None))
-        self.label.setText(_translate("MainWindow", "Channel 1 Rate (1/s)", None))
-        self.label_4.setText(_translate("MainWindow", "Channel 4 Rate (1/s)", None))
-        self.label_5.setText(_translate("MainWindow", "Channel 5 Rate (1/s)", None))
-        self.label_3.setText(_translate("MainWindow", "Channel 3 Rate (1/s)", None))
-        self.label_6.setText(_translate("MainWindow", "Channel 6 Rate (1/s)", None))
-        self.label_12.setText(_translate("MainWindow", "Pulse Statistics:", None))
-        self.label_9.setText(_translate("MainWindow", "Spectrum Stats:", None))
-        self.test1.setText(_translate("MainWindow", "Test Ch. 1", None))
-        self.test2.setText(_translate("MainWindow", "Test Ch. 2", None))
-        self.test4.setText(_translate("MainWindow", "Test Ch. 4", None))
-        self.test5.setText(_translate("MainWindow", "Test Ch. 5", None))
-        self.test6.setText(_translate("MainWindow", "Test Ch. 6", None))
-        self.test3.setText(_translate("MainWindow", "Test Ch. 3", None))
-        self.voltageoff.setText(_translate("MainWindow", "Set Output Off (0V)", None))
-        self.voltagemax.setText(_translate("MainWindow", "Set Output Max (5V)", None))
-        self.spectrumpulse.setText(_translate("MainWindow", "Single Pulse (Max, 5V)", None))
-        self.testtrigger.setText(_translate("MainWindow", "Test Trigger Signal", None))
-        self.run.setText(_translate("MainWindow", "Run", None))
-        self.stop.setText(_translate("MainWindow", "Stop", None))
-        self.label_13.setText(_translate("MainWindow", "Main Controls", None))
-        self.label_8.setText(_translate("MainWindow", "Spectrum Generator", None))
-        self.label_10.setText(_translate("MainWindow", "Spectrum Rate (1/s)", None))
-        self.spectrumlistrefresh.setText(_translate("MainWindow", "Refresh", None))
-        self.label_11.setText(_translate("MainWindow", "Select Spectrum:", None))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MeasureSim", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("MainWindow", "Pulse Generator", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Channel 2 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("MainWindow", "Channel 1 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("MainWindow", "Channel 4 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("MainWindow", "Channel 5 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Channel 3 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("MainWindow", "Channel 6 Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_12.setText(QtGui.QApplication.translate("MainWindow", "Pulse Statistics:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("MainWindow", "Spectrum Stats:", None, QtGui.QApplication.UnicodeUTF8))
+        self.test1.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 1", None, QtGui.QApplication.UnicodeUTF8))
+        self.test2.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 2", None, QtGui.QApplication.UnicodeUTF8))
+        self.test4.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 4", None, QtGui.QApplication.UnicodeUTF8))
+        self.test5.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 5", None, QtGui.QApplication.UnicodeUTF8))
+        self.test6.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 6", None, QtGui.QApplication.UnicodeUTF8))
+        self.test3.setText(QtGui.QApplication.translate("MainWindow", "Test Ch. 3", None, QtGui.QApplication.UnicodeUTF8))
+        self.voltageoff.setText(QtGui.QApplication.translate("MainWindow", "Set Output Off (0V)", None, QtGui.QApplication.UnicodeUTF8))
+        self.voltagemax.setText(QtGui.QApplication.translate("MainWindow", "Set Output Max (5V)", None, QtGui.QApplication.UnicodeUTF8))
+        self.spectrumpulse.setText(QtGui.QApplication.translate("MainWindow", "Single Pulse (Max, 5V)", None, QtGui.QApplication.UnicodeUTF8))
+        self.testtrigger.setText(QtGui.QApplication.translate("MainWindow", "Test Trigger Signal", None, QtGui.QApplication.UnicodeUTF8))
+        self.run.setText(QtGui.QApplication.translate("MainWindow", "Run", None, QtGui.QApplication.UnicodeUTF8))
+        self.stop.setText(QtGui.QApplication.translate("MainWindow", "Stop", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("MainWindow", "Main Controls", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("MainWindow", "Spectrum Generator", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Spectrum Rate (1/s)", None, QtGui.QApplication.UnicodeUTF8))
+        self.spectrumlistrefresh.setText(QtGui.QApplication.translate("MainWindow", "Refresh", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("MainWindow", "Select Spectrum:", None, QtGui.QApplication.UnicodeUTF8))
 

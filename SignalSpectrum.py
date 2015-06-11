@@ -19,11 +19,13 @@ class SignalSpectrum():
         self.filename = filename
         self.nextping = time()
         self.logchannels = [0] * 4096
-        GPIO.setup(self.triggerport, GPIO.OUT)
-        GPIO.output(self.triggerport, False)
         self.dac = MCP4725(0x60)
         self.dac.setVoltage(0)
+        self.gpioinit()
 
+    def gpioinit(self):
+        GPIO.setup(self.triggerport, GPIO.OUT)
+        GPIO.output(self.triggerport, False)
 
     def execute(self):
         newu = u()
@@ -31,6 +33,7 @@ class SignalSpectrum():
         for idx in range(4096):
             if(newu < self.cumudata[idx]):
                 break
+        idx = 100
         self.logchannels[idx] += 1
         self.dacsignal(idx)
         
@@ -56,11 +59,10 @@ class SignalSpectrum():
 
     def setRate(self, rate):
         self.rate = rate
-#        print("set trigger rate to %d") % rate
 
     def trigger(self):
         GPIO.output(self.triggerport, True)
-        sleep(0.0001)
+        sleep(0.00001)
         GPIO.output(self.triggerport, False)
         
     def setSpectrum(self, filename):
