@@ -11,6 +11,8 @@ from PyQt4 import QtGui
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
+import RPi.GPIO as GPIO
+
 from SignalRunner import SignalRunner
 from SignalPulse import SignalPulse
 from SignalSpectrum import SignalSpectrum
