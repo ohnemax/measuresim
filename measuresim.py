@@ -10,7 +10,6 @@ from PyQt4 import QtGui
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from numpy import pad
 
 from SignalRunner import SignalRunner
 from SignalPulse import SignalPulse
@@ -141,7 +140,7 @@ class SimulationUi(QtGui.QMainWindow):
                 ax.hold(False)
                 self.ui.spectrumline.setText("Emitted spectrum (will be reset when Max=10e5):")
                 outputdata = self.list[i].logchannels
-                outputdata = pad(outputdata, (0,4096 - len(outputdata)), 'constant', constant_values=(0))
+                outputdata += [0] * (4096 - len(outputdata))
                 print(len(outputdata))
                 ax.plot(range(4096), outputdata)
                 self.canvas.draw()
@@ -160,7 +159,7 @@ class SimulationUi(QtGui.QMainWindow):
             ax.hold(False)
             self.ui.spectrumline.setText("Spectrum from file:")
             outputdata = self.list[spectrumidx].outputchannels
-            outputdata = pad(outputdata, (0,4096 - len(outputdata)), 'constant', constant_values=(0))
+            outputdata += [0] * (4096 - len(outputdata))
             print(len(outputdata))
             ax.plot(range(4096), outputdata)
             self.canvas.draw()
@@ -186,7 +185,7 @@ class SimulationUi(QtGui.QMainWindow):
                 ax.hold(False)
                 self.ui.spectrumline.setText("Emitted spectrum:")
                 outputdata = self.list[i].logchannels
-                outputdata = pad(outputdata, (0,4096 - len(outputdata)), 'constant', constant_values=(0))
+                outputdata += [0] * (4096 - len(outputdata))
                 print(len(outputdata))
                 ax.plot(range(4096), outputdata)
                 self.canvas.draw()
