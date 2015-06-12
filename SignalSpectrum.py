@@ -33,7 +33,6 @@ class SignalSpectrum():
         for idx in range(4096):
             if(newu < self.cumudata[idx]):
                 break
-        idx = 100
         self.logchannels[idx] += 1
         self.dacsignal(idx)
         
