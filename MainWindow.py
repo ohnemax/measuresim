@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Thu Jun 11 19:55:31 2015
+# Created: Fri Jun 12 00:26:06 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,6 +39,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate1.sizePolicy().hasHeightForWidth())
         self.rate1.setSizePolicy(sizePolicy)
         self.rate1.setAccelerated(True)
+        self.rate1.setMinimum(1)
         self.rate1.setMaximum(1000)
         self.rate1.setSingleStep(5)
         self.rate1.setProperty("value", 300)
@@ -69,6 +70,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate2.sizePolicy().hasHeightForWidth())
         self.rate2.setSizePolicy(sizePolicy)
         self.rate2.setAccelerated(True)
+        self.rate2.setMinimum(1)
         self.rate2.setMaximum(1000)
         self.rate2.setSingleStep(5)
         self.rate2.setProperty("value", 300)
@@ -81,6 +83,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate3.sizePolicy().hasHeightForWidth())
         self.rate3.setSizePolicy(sizePolicy)
         self.rate3.setAccelerated(True)
+        self.rate3.setMinimum(1)
         self.rate3.setMaximum(1000)
         self.rate3.setSingleStep(5)
         self.rate3.setProperty("value", 300)
@@ -93,6 +96,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate4.sizePolicy().hasHeightForWidth())
         self.rate4.setSizePolicy(sizePolicy)
         self.rate4.setAccelerated(True)
+        self.rate4.setMinimum(1)
         self.rate4.setMaximum(1000)
         self.rate4.setSingleStep(5)
         self.rate4.setProperty("value", 300)
@@ -105,6 +109,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate5.sizePolicy().hasHeightForWidth())
         self.rate5.setSizePolicy(sizePolicy)
         self.rate5.setAccelerated(True)
+        self.rate5.setMinimum(1)
         self.rate5.setMaximum(1000)
         self.rate5.setSingleStep(5)
         self.rate5.setProperty("value", 300)
@@ -117,6 +122,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.rate6.sizePolicy().hasHeightForWidth())
         self.rate6.setSizePolicy(sizePolicy)
         self.rate6.setAccelerated(True)
+        self.rate6.setMinimum(1)
         self.rate6.setMaximum(1000)
         self.rate6.setSingleStep(5)
         self.rate6.setProperty("value", 300)
@@ -127,6 +133,7 @@ class Ui_MainWindow(object):
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.verticalLayout.addWidget(self.label_12)
         self.pulsestat = QtGui.QPlainTextEdit(self.verticalLayoutWidget)
+        self.pulsestat.setReadOnly(True)
         self.pulsestat.setObjectName(_fromUtf8("pulsestat"))
         self.verticalLayout.addWidget(self.pulsestat)
         self.verticalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
@@ -139,6 +146,7 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName(_fromUtf8("label_9"))
         self.verticalLayout_2.addWidget(self.label_9)
         self.spectrumstat = QtGui.QPlainTextEdit(self.verticalLayoutWidget_2)
+        self.spectrumstat.setReadOnly(True)
         self.spectrumstat.setObjectName(_fromUtf8("spectrumstat"))
         self.verticalLayout_2.addWidget(self.spectrumstat)
         self.gridLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
